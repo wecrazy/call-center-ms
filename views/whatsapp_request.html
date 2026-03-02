@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light-style layout-menu-fixed layout-compact customizer-hide" dir="ltr"
+  data-theme="theme-default" data-assets-path="/static/" data-template="horizontal-menu-template">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <title>{{.Title}}</title>
+
+  <meta name="description" content="" />
+
+  <!-- typeahead -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/static/img/favicon/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css"
+    integrity="sha512-bZBu2H0+FGFz/stDN/L0k8J0G8qVsAL0ht1qg5kTwtAheiXwiRKyCq1frwfbSFSJN3jooR5kauE0YjtPzhZtJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="/static/css/rtl/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="/static/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="/static/css/demo.css" />
+
+  <!-- Libs CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.6/css/perfect-scrollbar.css"
+    integrity="sha512-2xznCEl5y5T5huJ2hCmwhvVtIGVF1j/aNUEJwi/BzpWPKEzsZPGpwnP1JrIMmjPpQaVicWOYVu8QvAIg9hwv9w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.8.1/typeahead.css" />
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Page CSS -->
+
+  <!-- Helpers -->
+  <script src="/static/js/helpers.js"></script>
+  <script src="/static/js/template-customizer.js"></script>
+  <script src="/static/js/config.js"></script>
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Page JS -->
+  <script src="/static/js/main/whatsapp_request.js?_=30042025"></script>
+</head>
+
+<body>
+  <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
+    <div class="layout-container">
+      <!-- Layout container -->
+      <div class="layout-page">
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+
+          <div class="container-xxl flex-grow-1 container-p-y">
+
+            <div hidden>
+              <input type="text" name="phone_number" id="pic_phone_number" value="{{.PhoneNumber}}">
+              <input type="text" name="phone_number" id="temp_cs" value="{{.TempCS}}">
+              <input type="text" name="endpoint_get_rc_by_company" id="endpoint_get_rc_by_company"
+                value="{{.EndpointGetRC}}">
+            </div>
+
+            <!--
+            * Uncomment this SOON if needed
+            <div class="d-flex justify-content-end align-items-start mb-4">
+              <button class="btn btn-sm btn-danger shadow" onclick="markAsCalled()">
+                <i class='bx bx-phone-call me-2'></i>
+                Tandai Sudah Dihubungin
+              </button>
+            </div>
+            -->
+
+            <div class="card card-action mb-2" id="main-info-card">
+              <div class="card-alert"></div>
+              <div class="card-header">
+                <div class="card-action-title">
+                  <i class='bx bx-news me-2'></i>
+                  Main Info
+                </div>
+                <div class="card-action-element">
+                  <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                      <a href="javascript:void(0);" class="card-collapsible"><i
+                          class="tf-icons bx bx-chevron-up"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="javascript:void(0);" class="card-expand"><i class="tf-icons bx bx-fullscreen"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="collapse show">
+                {{.CardHeaderInfo}}
+              </div>
+            </div>
+
+            <div class="card overflow-hidden mb-4" style="height: 500px">
+              <div class="card-header bg-secondary text-white">
+                <i class='bx bx-microphone me-2'></i>
+                Text Presentation
+              </div>
+              <div class="card-body" id="text-presentation-scrollable">
+                <div class="mt-3 text-wrap text-body-secondary" style="text-align: justify;">
+                  {{.TextPresentation}}
+                </div>
+              </div>
+            </div>
+
+            <hr class="container-m-nx my-5">
+
+            <div id="details-data">
+              {{range .DetailsData}}
+              <div class="card card-action mb-2 shadow" id="info_card_{{.ID}}">
+                <div class="card-alert"></div>
+                <div class="card-header d-flex align-items-center flex-wrap justify-content-between">
+                  <small class="col-12 mb-2">
+                    Tercatat di <i>system</i> sejak: {{.CreatedAt.Format `2006-01-02 15:04:05`}}
+                  </small>
+
+                  <!-- Left: Badge -->
+                  {{ if .OrderWish }}
+                  <div class="me-auto">
+                    {{ if eq .OrderWish "Re-Confirm" }}
+                    <div class="p-2 bg-label-warning text-nowrap d-inline-block">
+                      {{.OrderWish}}
+                      <span class="badge mx-4 bg-white text-secondary badge-notifications">{{.ID}}</span>
+                    </div>
+                    {{ else }}
+                    <div class="p-2 bg-label-danger text-nowrap d-inline-block">
+                      {{.OrderWish}}
+                      <span class="badge mx-4 bg-white text-secondary badge-notifications">{{.ID}}</span>
+                    </div>
+                    {{ end }}
+                  </div>
+                  {{ end }}
+
+                  <!-- Center: Empty Spacer -->
+                  <div class="flex-grow-1"></div>
+
+                  <!-- Right: Order Number & Helpdesk Ticket -->
+                  <div class="d-flex align-items-center min-width-0 ms-auto">
+                    <i class='bx bx-file me-2'></i>
+                    <a href="{{$.LinkWODetail}}{{.WoNumber}}" target="_blank" rel="noopener noreferrer"
+                      class="text-decoration-none fw-bold text-primary text-truncate" data-bs-toggle="tooltip"
+                      data-bs-offset="0,8" data-bs-placement="top" data-bs-custom-class="tooltip-primary"
+                      data-bs-original-title="Klik untuk melihat detail WO Number !">
+                      {{.WoNumber}}
+                    </a>
+                    <em class="text-muted ms-2 text-truncate">#{{.HelpdeskTicketName}}</em>
+                  </div>
+
+                  <!-- Right-Most: Actions -->
+                  <div class="ms-3 d-flex align-items-center">
+                    <ul class="list-inline mb-0 d-flex">
+                      <li class="list-inline-item">
+                        <a href="javascript:void(0);" class="card-collapsible" data-target="#collapse_{{.ID}}">
+                          <i class="tf-icons bx bx-chevron-down"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="javascript:void(0);" class="card-expand">
+                          <i class="tf-icons bx bx-fullscreen"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="collapse mb-2" id="collapse_{{.ID}}">
+                  <div class="p-3 mx-2">
+                    <!-- Instruction to CC -->
+                    <div class="alert alert-info d-flex mb-3" role="alert">
+                      <span class="badge badge-center rounded-pill bg-info border-label-white p-3 me-2"><i
+                          class="fas fa-info fs-5"></i></span>
+                      <div class="d-flex flex-column ps-1">
+                        <h6 class="alert-heading d-flex align-items-center mb-1">Instruksi | REQUEST {{.RequestType}}
+                        </h6>
+                        <span class="text-black">{{.RequestToCC}}</span>
+                      </div>
+                    </div>
+                    <!-- .end of Instruction to CC -->
+
+                    <!-- Work Order Ticket -->
+                    <div class="card bg-transparent shadow-none border-0 my-4">
+                      <div class="card-body row p-0 pb-3">
+                        <!-- Left Section -->
+                        <div class="col-12 col-md-8 border-end">
+                          <h3>WO Number:
+                            {{if .WoNumber}}
+                            <a href="{{$.LinkWODetail}}{{.WoNumber}}" target="_blank" rel="noopener noreferrer"
+                              data-bs-toggle="tooltip" data-bs-offset="0,8" data-bs-placement="top"
+                              data-bs-custom-class="tooltip-primary"
+                              data-bs-original-title="Klik untuk melihat detail WO Number !">
+                              {{.WoNumber}}
+                            </a>
+                            {{end}}
+
+                            {{if .StageName}}
+                            {{if eq .StageName "New"}}
+                            <span class="badge bg-info rounded-pill">{{.StageName}}</span>
+                            {{else if eq .StageName "Done"}}
+                            <span class="badge bg-success rounded-pill">{{.StageName}}</span>
+                            {{else if eq .StageName "Open Pending"}}
+                            <span class="badge bg-warning rounded-pill text-dark">{{.StageName}}</span>
+                            {{else if eq .StageName "Cancel"}}
+                            <span class="badge bg-danger rounded-pill">{{.StageName}}</span>
+                            {{else if eq .StageName "Verified"}}
+                            <span class="badge bg-label-success rounded-pill">{{.StageName}}</span>
+                            {{else}}
+                            <span class="badge bg-secondary rounded-pill">{{.StageName}}</span>
+                            {{end}}
+                            {{end}}
+                          </h3>
+                          <p class="mb-3">SPK Number: {{.HelpdeskTicketName}}</p>
+
+                          <div class="row g-3">
+                            <div class="col-md-6 col-lg-3">
+                              <div class="d-flex align-items-center gap-3">
+                                <span class="bg-label-primary p-2 rounded">
+                                  <i class="bx bx-time-five bx-sm"></i>
+                                </span>
+                                <div>
+                                  <p class="mb-1">Tanggal SPK Diterima</p>
+                                  <h6 class="text-primary mb-0">
+                                    {{if .ReceivedDatetimeSpk}}
+                                    {{.ReceivedDatetimeSpk.Format `2006-01-02 15:04:05`}}
+                                    {{end}}
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                              <div class="d-flex align-items-center gap-3">
+                                <span class="bg-label-info p-2 rounded">
+                                  <i class="bx bx-calendar-plus bx-sm"></i>
+                                </span>
+                                <div>
+                                  <p class="mb-1">Tanggal JO Terbit di ODOO</p>
+                                  <h6 class="text-info mb-0">
+                                    {{if .CreateDate}}
+                                    {{.CreateDate.Format `2006-01-02 15:04:05`}}
+                                    {{end}}
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                              <div class="d-flex align-items-center gap-3">
+                                <span class="bg-label-danger p-2 rounded">
+                                  <i class="bx bx-alarm-exclamation bx-sm"></i>
+                                </span>
+                                <div>
+                                  <p class="mb-1">SLA Deadline</p>
+                                  <h6 class="text-danger mb-0">
+                                    {{if .SlaDeadline}}
+                                    {{.SlaDeadline.Format `2006-01-02 15:04:05`}}
+                                    {{end}}
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                              <div class="d-flex align-items-center gap-3">
+                                <span class="bg-label-success p-2 rounded">
+                                  <i class="bx bx-calendar-edit bx-sm"></i>
+                                </span>
+                                <div>
+                                  <p class="mb-1">Tanggal JO di Plan</p>
+                                  <h6 class="text-success mb-0">
+                                    {{if .PlanDate}}
+                                    {{.PlanDate.Format `2006-01-02 15:04:05`}}
+                                    {{end}}
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row mt-3">
+                            <div class="col-md-12 col-lg-12">
+                              <figure>
+                                <blockquote class="blockquote text-danger">
+                                  <p class="mb-0">Description:</p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer">
+                                  {{.Description}}
+                                </figcaption>
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Right Section -->
+                        <div class="col-12 col-md-4 ps-md-4 pt-4 pt-md-0">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <p class="mb-3 text-muted d-flex align-items-center gap-2">
+                                <span class="bg-label-secondary p-2 rounded">
+                                  <i class="bx bx-briefcase bx-sm"></i>
+                                </span>
+                                <span>SPK Status:</span>
+                                {{if .TicketStageName}}
+                                <span class="badge bg-secondary rounded-pill">{{.TicketStageName}}</span>
+                                {{end}}
+                              </p>
+
+                              <h6 class="mb-2">
+                                Job ID: {{.JobId}}
+                              </h6>
+                              <h6 class="mb-2">
+                                Source: {{.Source}}
+                              </h6>
+                              <p class="m-0">
+                                <i class='bx bxs-hard-hat me-1'></i> Technician: {{.TechnicianName}}
+                              </p>
+                              <p class="m-0">
+                                <i class='bx bx-stopwatch me-1'></i> Tanggal Kunjungan:
+                              </p>
+                              {{if .TimesheetLastStop}}
+                              {{.TimesheetLastStop.Format `2006-01-02 15:04:05`}}
+                              {{end}}
+
+                              <div class="">
+                                <h3 class="mb-3 mt-2">Company:
+                                  <span class="text-muted">{{.CompanyName}}</span>
+                                </h3>
+                                <div>
+                                  <i class='bx bx-clipboard me-2'></i> WO Task Type:
+                                  <span class="badge bg-label-danger">
+                                    {{.TaskType}}
+                                  </span>
+                                </div>
+                                <div>
+                                  Reason Code:
+                                  <p class="text-warning">
+                                    {{.ReasonCodeName}}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- .end of Work Order Ticket -->
+
+                    <!-- Merchant Info -->
+                    <div class="card mt-3 mb-4 bg-label-dark shadow">
+                      <div class="card-header">
+                        <div class="row w-100 align-items-center">
+
+                          <!-- Left Side (Merchant Info) -->
+                          <div class="col-md-6 d-flex align-items-center">
+                            <span class="bg-dark p-2 rounded me-2">
+                              <i class='bx bx-store bx-sm text-white'></i>
+                            </span>
+                            <div>
+                              <h5 class="mb-1 fw-bold">{{.MerchantName}}</h5>
+                              <h6 class="mb-0">PIC: <span>{{.PicMerchant}} (0{{.PicPhone}})</span></h6>
+                            </div>
+                          </div>
+
+                          <!-- Right Side (Perangkat EDC) -->
+                          <div class="col-md-6 d-flex justify-content-end align-items-center">
+                            <div class="text-end">
+                              <h5 class="mb-1 fw-bold">Tipe & SN EDC:</h5>
+                              <h6 class="mb-0">{{.EdcType}} #{{.SnEdc}}</h6>
+                            </div>
+                            <span class="bg-dark p-2 rounded ms-3">
+                              <i class='bx bx-mobile-vibration bx-sm text-white'></i>
+                            </span>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="card-body">
+                        <div class="d-flex align-items-center flex-wrap">
+                          <div class="bg-lighter p-2 rounded me-auto mb-3">
+                            <h6 class="mb-1">
+                              MIDTID:
+                              {{if .Mid | and .Tid}}
+                              <a href="/merchant-detail?data={{.Mid}}{{.Tid}}" class="text-danger fw-normal"
+                                target="_blank" data-bs-toggle="tooltip" data-bs-offset="0,8" data-bs-placement="top"
+                                data-bs-custom-class="tooltip-danger"
+                                data-bs-original-title="Klik untuk melihat History SPK Number & WO Number pada MIDTID ini !">
+                                {{.Mid}} {{.Tid}}
+                              </a>
+                              {{else}}
+                              <span class="text-danger fw-normal">
+                                {{.Mid}} {{.Tid}}
+                              </span>
+                              {{end}}
+                            </h6>
+                            <small>Status Merchant: {{.StatusMerchant}}</small>
+                          </div>
+                          <div class="text-end mb-3">
+                            <h6 class="mb-1">Longitude: <span class="text-body fw-normal">{{.Longitude}}</span></h6>
+                            <h6 class="mb-1">Latitude: <span class="text-body fw-normal">{{.Latitude}}</span></h6>
+                          </div>
+                        </div>
+                        <p class="mb-0">Alamat: {{.MerchantAddress}}</p>
+                      </div>
+
+                      <!-- Call Center Message -->
+                      <div class="card-body border-top">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between mb-3">
+                          <h6 class="mb-1 text-break w-50">
+                            Call Center Message:
+                            <span class="text-muted fw-normal text-break">{{.CallCenterMessage}}</span>
+                          </h6>
+                          {{ if .Longitude }}
+                          {{ if .Latitude }}
+                          <a href="https://www.google.com/maps?q={{.Latitude}},{{.Longitude}}" target="_blank"
+                            class="btn btn-sm btn-dark d-flex align-items-center">
+                            <i class="bx bx-map me-1"></i> Merchant Location
+                          </a>
+                          {{ end }}
+                          {{ end }}
+                        </div>
+                        <h6 class="mb-1 text-break">
+                          WO Remark (Tiket): <span class="text-primary fw-normal text-break">{{.WoRemarkTiket}}</span>
+                        </h6>
+                      </div>
+                    </div>
+                    <!-- .end of Merchant Info -->
+
+                    <!-- Form Submit Reschedule -->
+                    <div class="card shadow">
+                      <div class="card-header bg-label-warning text-dark display-6">Form Penjadwalan Ulang Kunjungan /
+                        Feedback dari Merchant</div>
+                      <div class="card-body mt-3">
+                        <form class="ajax-form" data-id="{{.ID}}">
+                          <input type="hidden" name="id" value="{{.ID}}">
+                          <input type="hidden" name="idCS" value="{{.TempCS}}">
+                          <input type="hidden" name="orderWish" value="{{.OrderWish}}">
+                          <input type="hidden" name="woNumber" value="{{.WoNumber}}">
+
+                          <div class="row mb-4 mt-3">
+                            <!-- Merchant PIC Input -->
+                            <div class="form-group col-md-3 col-sm-3 col-lg-3">
+                              <label for="pic" class="form-label">*Nama PIC dari Merchant</label>
+                              <input class="form-control" type="text" name="pic" id="pic_{{.ID}}"
+                                value="{{.PicMerchant}}" />
+                            </div>
+
+                            <!-- PIC Phone Number Input -->
+                            <div class="form-group col-md-3 col-sm-3 col-lg-3">
+                              <label for="picPhone" class="form-label">*Nomor Telepon PIC</label>
+                              <input class="form-control" type="text" name="picPhone" id="picPhone_{{.ID}}"
+                                value="0{{.PicPhone}}" />
+                            </div>
+
+                            <!-- Re-Schedule Section -->
+                            <div class="form-group col-md-3 col-sm-3 col-lg-3">
+                              <div class="form-check form-switch mb-2">
+                                <!-- I think SOON u must set the is reschedule value using IsReschedule -->
+                                <input class="form-check-input reSchedule-switch" type="checkbox"
+                                  id="reSchedule_{{.ID}}" name="isReschedule">
+                                <label class="form-check-label" for="reSchedule_{{.ID}}">Jadwalkan Ulang</label>
+                              </div>
+                              <input readonly class="form-control bg-label-secondary text-black dateReschedule-input"
+                                type="date" name="dateReschedule" id="dateReschedule_{{.ID}}" {{if .PlanDate}}
+                                value="{{.PlanDate.Format `2006-01-02`}}" {{end}} />
+                            </div>
+
+                            <!-- Target Schedule -->
+                            <div class="form-group col-md-3 col-sm-3 col-lg-3">
+                              <label for="targetSchedule" class="form-label">Tanggal Kunjungan Direncanakan</label>
+                              <input readonly class="form-control bg-label-secondary text-black" type="date"
+                                name="targetSchedule" id="targetSchedule_{{.ID}}" {{if .TargetScheduleDate}}
+                                value="{{.TargetScheduleDate.Format `2006-01-02`}}" {{end}} />
+                            </div>
+                          </div>
+
+                          <div class="row mb-4">
+                            <!-- Screenshot Whatsapp -->
+                            <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                              <label for="imgWA" class="form-label">*Gambar Screenshot Whatsapp</label>
+                              <div class="d-flex align-items-center gap-2">
+                                <input class="form-control" type="file" name="imgWA" id="imgWA_{{.ID}}"
+                                  onchange="previewImage(event, 'previewWA_{{.ID}}', 'boxWA_{{.ID}}', 'removeWA_{{.ID}}')" />
+                                <div class="preview-box border rounded p-1 d-none position-relative" id="boxWA_{{.ID}}">
+                                  <img id="previewWA_{{.ID}}" class="img-thumbnail"
+                                    style="width: 80px; height: 80px;" />
+                                  <button type="button"
+                                    class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                    id="removeWA_{{.ID}}"
+                                    onclick="removeImage('imgWA_{{.ID}}', 'previewWA_{{.ID}}', 'boxWA_{{.ID}}', 'removeWA_{{.ID}}')">
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- Foto Merchant & Lokasi -->
+                            <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                              <label for="imgMerchant" class="form-label">Foto Merchant & Lokasi Sekitar
+                                Merchant</label>
+                              <div class="d-flex align-items-center gap-2">
+                                <input class="form-control" type="file" name="imgMerchant" id="imgMerchant_{{.ID}}"
+                                  onchange="previewImage(event, 'previewMerchant_{{.ID}}', 'boxMerchant_{{.ID}}', 'removeMerchant_{{.ID}}')" />
+                                <div class="preview-box border rounded p-1 d-none position-relative"
+                                  id="boxMerchant_{{.ID}}">
+                                  <img id="previewMerchant_{{.ID}}" class="img-thumbnail"
+                                    style="width: 80px; height: 80px;" />
+                                  <button type="button"
+                                    class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                    id="removeMerchant_{{.ID}}"
+                                    onclick="removeImage('imgMerchant_{{.ID}}', 'previewMerchant_{{.ID}}', 'boxMerchant_{{.ID}}', 'removeMerchant_{{.ID}}')">
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- Foto SN EDC -->
+                            <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                              <label for="imgSNEDC" class="form-label">Foto SN EDC di Merchant</label>
+                              <div class="d-flex align-items-center gap-2">
+                                <input class="form-control" type="file" name="imgSNEDC" id="imgSNEDC_{{.ID}}"
+                                  onchange="previewImage(event, 'previewSNEDC_{{.ID}}', 'boxSNEDC_{{.ID}}', 'removeSNEDC_{{.ID}}')" />
+                                <div class="preview-box border rounded p-1 d-none position-relative"
+                                  id="boxSNEDC_{{.ID}}">
+                                  <img id="previewSNEDC_{{.ID}}" class="img-thumbnail"
+                                    style="width: 80px; height: 80px;" />
+                                  <button type="button"
+                                    class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                    id="removeSNEDC_{{.ID}}"
+                                    onclick="removeImage('imgSNEDC_{{.ID}}', 'previewSNEDC_{{.ID}}', 'boxSNEDC_{{.ID}}', 'removeSNEDC_{{.ID}}')">
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group col-12 mb-4">
+                            <label for="additionalNotes" class="form-label">*Feedback</label>
+                            <textarea class="form-control" name="additionalNotes"
+                              id="additionalNotes_{{.ID}}"></textarea>
+                          </div>
+
+                          <div class="form-group col-12 mb-4">
+                            <label for="nextFollowUpTo" class="form-label">*Hasil Feedback Selanjutnya Di-Follow Up
+                              oleh:</label>
+                            <select class="form-select w-100" name="nextFollowUpTo[]" multiple="multiple"
+                              id="nextFollowUpTo_{{.ID}}">
+                              <!-- Dynamic option -->
+                            </select>
+                          </div>
+
+                          <button type="button" class="btn btn-primary submit-btn w-100">Submit</button>
+                        </form>
+                      </div>
+                    </div>
+                    <!-- .end of Form Submit Reschedule -->
+
+                    <!-- Form Edit JO to ODOO using Technician Call Center -->
+                    <div id="editJOToODOOAccordion" class="accordion mt-5 accordion-popout">
+                      <div class="accordion-item card">
+                        <div class="accordion-header text-body d-flex justify-content-between"
+                          id="accordionPopoutIconOne">
+                          <button type="button" class="accordion-button bg-dark text-white collapsed"
+                            data-bs-toggle="collapse" data-bs-target="#editJOToODOOAccordion-1"
+                            aria-controls="editJOToODOOAccordion-1" aria-expanded="false">
+                            <div class="display-5">
+                              <i class='bx bx-edit-alt me-2'></i>
+                              Edit Data <i>Job Order</i> ke ODOO
+                            </div>
+                          </button>
+                        </div>
+
+                        <div id="editJOToODOOAccordion-1" class="accordion-collapse collapse"
+                          data-bs-parent="#editJOToODOOAccordion">
+                          <div class="accordion-body mt-3">
+                            <form class="ajax-form-edit-data-odoo" data-id="{{.ID}}">
+                              <input type="hidden" name="edit-id" value="{{.ID}}">
+                              <input type="hidden" name="edit-idCS" value="{{.TempCS}}">
+                              <input type="hidden" name="edit-woNumber" value="{{.WoNumber}}">
+                              <input type="hidden" name="edit-company" value="{{.CompanyName}}">
+
+                              <div class="row mb-4 mt-3 w-100 align-items-center">
+                                <div class="col-md-6 d-flex align-items-center">
+                                  <div>
+                                    <h5 class="mb-1 fw-bold">
+                                      {{if .WoNumber}}
+                                      <a href="{{$.LinkWODetail}}{{.WoNumber}}" target="_blank"
+                                        rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-offset="0,8"
+                                        data-bs-placement="top" data-bs-custom-class="tooltip-primary"
+                                        data-bs-original-title="Klik untuk melihat detail WO Number !">
+                                        {{.WoNumber}}
+                                      </a>
+                                      {{end}}
+
+                                      {{if .StageName}}
+                                      {{if eq .StageName "New"}} <span
+                                        class="badge bg-info rounded-pill">{{.StageName}}</span>
+                                      {{else if eq .StageName "Done"}} <span
+                                        class="badge bg-success rounded-pill">{{.StageName}}</span>
+                                      {{else if eq .StageName "Open Pending"}} <span
+                                        class="badge bg-warning rounded-pill text-dark">{{.StageName}}</span>
+                                      {{else if eq .StageName "Cancel"}} <span
+                                        class="badge bg-danger rounded-pill">{{.StageName}}</span>
+                                      {{else if eq .StageName "Verified"}} <span
+                                        class="badge bg-label-success rounded-pill">{{.StageName}}</span>
+                                      {{else}} <span class="badge bg-secondary rounded-pill">{{.StageName}}</span>
+                                      {{end}}
+                                      {{end}}
+                                    </h5>
+                                    <h6 class="mb-0 text-muted">
+                                      {{.ID}}
+                                      {{if .TaskType}}
+                                      <span class="badge bg-label-danger">{{.TaskType}}</span>
+                                      {{end}}
+                                    </h6>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                  <div class="text-end">
+                                    <h5 class="mb-1 fw-bold">
+                                      {{if .HelpdeskTicketName}}
+                                      #{{.HelpdeskTicketName}}
+                                      {{end}}
+                                    </h5>
+                                    <h6>
+                                      {{if .TicketStageName}}
+                                      <span class="badge bg-secondary rounded-pill">{{.TicketStageName}}</span>
+                                      {{end}}
+                                    </h6>
+                                  </div>
+                                </div>
+
+                              </div>
+
+                              <div class="row mb-4 mt-3">
+                                <figure>
+                                  <blockquote class="blockquote text-danger">
+                                    <p class="mb-0">Description:</p>
+                                  </blockquote>
+                                  <figcaption class="blockquote-footer">
+                                    {{if .Description}}
+                                    {{.Description}}
+                                    {{end}}
+                                  </figcaption>
+                                </figure>
+                              </div>
+
+                              <div class="row mb-4 mt-3">
+                                <!-- Reason Code -->
+                                <div class="form-group col-md-6 col-sm-6 col-lg-6">
+                                  <label for="edit-reason_code" class="form-label">*Reason Code</label>
+                                  <select class="form-select" name="edit-reason_code" id="edit-reason_code_{{.ID}}">
+                                    <!-- Dynamic rc option -->
+                                  </select>
+                                </div>
+                                <!-- Stage -->
+                                <div class="form-group col-md-6 col-sm-6 col-lg-6">
+                                  <label for="edit-stage" class="form-label">*Stage</label>
+                                  <select class="form-select" name="edit-stage" id="edit-stage_{{.ID}}">
+                                    <!-- Dynamic stage option -->
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="row mb-4 mt-3">
+                                <div class="display-6 mt-3 mb-3 text-center">Status Merchant</div>
+                                <!-- Status Merchant -->
+                                <div class="form-group col-md-6 col-sm-6 col-lg-3 mb-3 mt-3">
+                                  <label for="edit-merchant_status" class="form-label">*Status Merchant</label>
+                                  <select class="form-select" name="edit-merchant_status"
+                                    id="edit-merchant_status{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+
+                                <!-- Status Alamat Merchant -->
+                                <div class="form-group col-md-6 col-sm-6 col-lg-3 mb-3 mt-3">
+                                  <label for="edit-status_alamat_merchant" class="form-label">*Status Alamat
+                                    Merchant</label>
+                                  <select class="form-select" name="edit-status_alamat_merchant"
+                                    id="edit-status_alamat_merchant{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+
+                                <!-- Request Merchant -->
+                                <div class="form-group col-md-6 col-sm-6 col-lg-3 mb-3 mt-3">
+                                  <label for="edit-request_merchant" class="form-label">*Request dari Merchant</label>
+                                  <select class="form-select" name="edit-request_merchant"
+                                    id="edit-request_merchant{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+
+                                <!-- Priority EDC -->
+                                <div class="form-group col-md-6 col-sm-6 col-lg-3 mb-3 mt-3">
+                                  <label for="edit-priority_edc" class="form-label">*Prioritas EDC</label>
+                                  <select class="form-select" name="edit-priority_edc" id="edit-priority_edc{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="row mb-4 mt-3">
+                                <div class="display-6 mt-3 mb-3 text-center">Kondisi & Kelengkapan EDC</div>
+                                <!-- Adaptor -->
+                                <div class="form-group col-md-4 col-sm-4 col-lg-4 mb-3 mt-3">
+                                  <label for="edit-adaptor" class="form-label">*Adaptor EDC</label>
+                                  <select class="form-select" name="edit-adaptor" id="edit-adaptor{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+
+                                <!-- Status EDC -->
+                                <div class="form-group col-md-4 col-sm-4 col-lg-4 mb-3 mt-3">
+                                  <label for="edit-status_edc" class="form-label">*Status EDC</label>
+                                  <select class="form-select" name="edit-status_edc" id="edit-status_edc{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+
+                                <!-- Kondisi EDC -->
+                                <div class="form-group col-md-4 col-sm-4 col-lg-4 mb-3 mt-3">
+                                  <label for="edit-kondisi_edc" class="form-label">*Kondisi EDC</label>
+                                  <select class="form-select" name="edit-kondisi_edc" id="edit-kondisi_edc{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+
+                                <!-- Kondisi Detail EDC -->
+                                <div class="form-group col-md-4 col-sm-4 col-lg-4 mb-3 mt-3">
+                                  <label for="edit-kondisi_detail_edc" class="form-label">*Kondisi Detail EDC</label>
+                                  <select class="form-select" name="edit-kondisi_detail_edc"
+                                    id="edit-kondisi_detail_edc{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+
+                                <!-- Signal Bar Jaringan -->
+                                <div class="form-group col-md-4 col-sm-4 col-lg-4 mb-3 mt-3">
+                                  <label for="edit-signal_bar_jaringan" class="form-label">*Bar Sinyal pada
+                                    Jaringan</label>
+                                  <select class="form-select" name="edit-signal_bar_jaringan"
+                                    id="edit-signal_bar_jaringan{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+
+                                <!-- Signal Type -->
+                                <div class="form-group col-md-4 col-sm-4 col-lg-4 mb-3 mt-3">
+                                  <label for="edit-signal_type" class="form-label">*Tipe Sinyal</label>
+                                  <select class="form-select" name="edit-signal_type" id="edit-signal_type{{.ID}}">
+                                    <!-- Dynamic option -->
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="row mb-4 mt-3">
+                                <div class="display-6 mt-3 text-center">
+                                  Foto
+                                </div>
+                                <div class="position-relative mb-5">
+                                  <div class="form-check form-check-success position-absolute top-0 end-0 p-3 mb-5">
+                                    <input class="form-check-input reSchedule-switch" type="checkbox"
+                                      id="photo-using-timestamp_{{.ID}}" name="photoTimestamp" checked>
+                                    <label class="form-check-label" for="photo-using-timestamp_{{.ID}}">Gunakan
+                                      Timestamp</label>
+                                  </div>
+                                </div>
+                                <!-- Foto EDC -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_foto_edc" class="form-label">*Gambar Perangkat EDC / SN EDC</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_foto_edc" id="x_foto_edc_{{.ID}}"
+                                      onchange="previewImage(event, 'previewFotoEDC_{{.ID}}', 'boxFotoEDC_{{.ID}}', 'removeFotoEDC_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxFotoEDC_{{.ID}}">
+                                      <img id="previewFotoEDC_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeFotoEDC_{{.ID}}"
+                                        onclick="removeImage('x_foto_edc_{{.ID}}', 'previewFotoEDC_{{.ID}}', 'boxFotoEDC_{{.ID}}', 'removeFotoEDC_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Foto BAST -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_foto_bast" class="form-label">*Foto BAST (Berita Acara Serah
+                                    Terima)</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_foto_bast" id="x_foto_bast_{{.ID}}"
+                                      onchange="previewImage(event, 'previewFotoBAST_{{.ID}}', 'boxFotoBAST_{{.ID}}', 'removeFotoBAST_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxFotoBAST_{{.ID}}">
+                                      <img id="previewFotoBAST_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeFotoBAST_{{.ID}}"
+                                        onclick="removeImage('x_foto_bast_{{.ID}}', 'previewFotoBAST_{{.ID}}', 'boxFotoBAST_{{.ID}}', 'removeFotoBAST_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Foto Ceklis -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_foto_ceklis" class="form-label">*Foto Media Promo</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_foto_ceklis"
+                                      id="x_foto_ceklis_{{.ID}}"
+                                      onchange="previewImage(event, 'previewFotoCeklis_{{.ID}}', 'boxFotoCeklis_{{.ID}}', 'removeFotoCeklis_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxFotoCeklis_{{.ID}}">
+                                      <img id="previewFotoCeklis_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeFotoCeklis_{{.ID}}"
+                                        onclick="removeImage('x_foto_ceklis_{{.ID}}', 'previewFotoCeklis_{{.ID}}', 'boxFotoCeklis_{{.ID}}', 'removeFotoCeklis_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Foto Toko -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_foto_toko" class="form-label">*Foto Merchant</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_foto_toko" id="x_foto_toko_{{.ID}}"
+                                      onchange="previewImage(event, 'previewFotoToko_{{.ID}}', 'boxFotoToko_{{.ID}}', 'removeFotoToko_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxFotoToko_{{.ID}}">
+                                      <img id="previewFotoToko_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeFotoToko_{{.ID}}"
+                                        onclick="removeImage('x_foto_toko_{{.ID}}', 'previewFotoToko_{{.ID}}', 'boxFotoToko_{{.ID}}', 'removeFotoToko_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Foto Transaksi -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_foto_transaksi" class="form-label">*Foto Transaksi</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_foto_transaksi"
+                                      id="x_foto_transaksi_{{.ID}}"
+                                      onchange="previewImage(event, 'previewFotoTransaksi_{{.ID}}', 'boxFotoTransaksi_{{.ID}}', 'removeFotoTransaksi_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxFotoTransaksi_{{.ID}}">
+                                      <img id="previewFotoTransaksi_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeFotoTransaksi_{{.ID}}"
+                                        onclick="removeImage('x_foto_transaksi_{{.ID}}', 'previewFotoTransaksi_{{.ID}}', 'boxFotoTransaksi_{{.ID}}', 'removeFotoTransaksi_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Foto PIC -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_foto_pic" class="form-label">*Foto PIC Merchant</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_foto_pic" id="x_foto_pic_{{.ID}}"
+                                      onchange="previewImage(event, 'previewFotoPIC_{{.ID}}', 'boxFotoPIC_{{.ID}}', 'removeFotoPIC_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxFotoPIC_{{.ID}}">
+                                      <img id="previewFotoPIC_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeFotoPIC_{{.ID}}"
+                                        onclick="removeImage('x_foto_pic_{{.ID}}', 'previewFotoPIC_{{.ID}}', 'boxFotoPIC_{{.ID}}', 'removeFotoPIC_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Foto Setting -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_foto_setting" class="form-label">*Gambar Pengaturan</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_foto_setting"
+                                      id="x_foto_setting_{{.ID}}"
+                                      onchange="previewImage(event, 'previewFotoSetting_{{.ID}}', 'boxFotoSetting_{{.ID}}', 'removeFotoSetting_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxFotoSetting_{{.ID}}">
+                                      <img id="previewFotoSetting_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeFotoSetting_{{.ID}}"
+                                        onclick="removeImage('x_foto_setting_{{.ID}}', 'previewFotoSetting_{{.ID}}', 'boxFotoSetting_{{.ID}}', 'removeFotoSetting_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Foto Thermal -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_foto_thermal" class="form-label">Gambar Thermal</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_foto_thermal"
+                                      id="x_foto_thermal_{{.ID}}"
+                                      onchange="previewImage(event, 'previewFotoThermal_{{.ID}}', 'boxFotoThermal_{{.ID}}', 'removeFotoThermal_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxFotoThermal_{{.ID}}">
+                                      <img id="previewFotoThermal_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeFotoThermal_{{.ID}}"
+                                        onclick="removeImage('x_foto_thermal_{{.ID}}', 'previewFotoThermal_{{.ID}}', 'boxFotoThermal_{{.ID}}', 'removeFotoThermal_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Foto Training -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_foto_training" class="form-label">Foto Surat Training</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_foto_training"
+                                      id="x_foto_training_{{.ID}}"
+                                      onchange="previewImage(event, 'previewFotoTraining_{{.ID}}', 'boxFotoTraining_{{.ID}}', 'removeFotoTraining_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxFotoTraining_{{.ID}}">
+                                      <img id="previewFotoTraining_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeFotoTraining_{{.ID}}"
+                                        onclick="removeImage('x_foto_training_{{.ID}}', 'previewFotoTraining_{{.ID}}', 'boxFotoTraining_{{.ID}}', 'removeFotoTraining_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Tanda Tangan PIC -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_tanda_tangan_pic" class="form-label">Tanda Tangan PIC</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_tanda_tangan_pic"
+                                      id="x_tanda_tangan_pic_{{.ID}}"
+                                      onchange="previewImage(event, 'previewTandaTanganPIC_{{.ID}}', 'boxTandaTanganPIC_{{.ID}}', 'removeTandaTanganPIC_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxTandaTanganPIC_{{.ID}}">
+                                      <img id="previewTandaTanganPIC_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeTandaTanganPIC_{{.ID}}"
+                                        onclick="removeImage('x_tanda_tangan_pic_{{.ID}}', 'previewTandaTanganPIC_{{.ID}}', 'boxTandaTanganPIC_{{.ID}}', 'removeTandaTanganPIC_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Tanda Tangan Teknisi -->
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4 mb-3 mt-3">
+                                  <label for="x_tanda_tangan_teknisi" class="form-label">Tanda Tangan Teknisi</label>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <input class="form-control" type="file" name="x_tanda_tangan_teknisi"
+                                      id="x_tanda_tangan_teknisi_{{.ID}}"
+                                      onchange="previewImage(event, 'previewTandaTanganTeknisi_{{.ID}}', 'boxTandaTanganTeknisi_{{.ID}}', 'removeTandaTanganTeknisi_{{.ID}}')" />
+                                    <div class="preview-box border rounded p-1 d-none position-relative"
+                                      id="boxTandaTanganTeknisi_{{.ID}}">
+                                      <img id="previewTandaTanganTeknisi_{{.ID}}" class="img-thumbnail"
+                                        style="width: 80px; height: 80px;" />
+                                      <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle bg-white rounded-circle"
+                                        id="removeTandaTanganTeknisi_{{.ID}}"
+                                        onclick="removeImage('x_tanda_tangan_teknisi_{{.ID}}', 'previewTandaTanganTeknisi_{{.ID}}', 'boxTandaTanganTeknisi_{{.ID}}', 'removeTandaTanganTeknisi_{{.ID}}')">
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- .end of photos -->
+
+                              <div class="form-group col-12 mt-3 mb-4">
+                                <label for="edit-wo_remark" class="form-label">*WO Remark</label>
+                                <textarea class="form-control" name="edit-wo_remark" id="edit-wo_remark{{.ID}}"
+                                  placeholder="Remark / Komentar terkait Merchant, Kondisi EDC atau PIC merchant . . ."></textarea>
+                              </div>
+
+                              <div class="form-group col-12 mt-3 mb-4">
+                                <label for="edit-additionalNotes" class="form-label">Notes</label>
+                                <textarea class="form-control" name="edit-additionalNotes"
+                                  id="edit-additionalNotes_{{.ID}}"
+                                  placeholder="Notes ini nantinya akan ditampilkan di field Call Center Message pada JO  . . ."></textarea>
+                              </div>
+
+                              <button type="button" class="btn btn-dark text-white submit-btn-edit-data w-100">Submit
+                                Edited Data</button>
+                            </form>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- .end of Form Edit JO to ODOO using Technician Call Center -->
+
+
+                  </div>
+                </div>
+              </div>
+              {{end}}
+            </div>
+
+            <script>
+              $(document).ready(function () {
+                // Ensure all cards are collapsed on load
+                $(".collapse").removeClass("show");
+
+                // Click event for collapsing/expanding on WO Number
+                $(".toggle-card").click(function () {
+                  let target = $(this).data("target");
+                  $(target).collapse("toggle");
+                });
+
+                // Click event for collapsing/expanding using button
+                $(".card-collapsible").click(function () {
+                  let target = $(this).data("target");
+                  $(target).collapse("toggle");
+                });
+
+                // Initialize card actions
+                // use language gohtml to fix this below:
+                {{ range .DetailsData }}
+                initCardActions('info_card_{{ .ID }}');
+                {{ end }}
+              });
+            </script>
+
+          </div>
+
+        </div>
+      </div>
+      <!--/ Content -->
+      <div class="content-backdrop fade"></div>
+    </div>
+    <!--/ Content wrapper -->
+  </div>
+
+  <!--/ Layout container -->
+  </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="layout-overlay layout-menu-toggle"></div>
+
+  <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+  <div class="drag-target"></div>
+
+  <!--/ Layout wrapper -->
+
+  <!-- Core JS -->
+  <!-- build:js static/js/core.js -->
+
+  <!-- Libs JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+    integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+    integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.6/perfect-scrollbar.min.js"
+    integrity="sha512-gcLXgodlQJWRXhAyvb5ULNlBAcvjuufaOBRggyLCtCqez+9jW7MxP3Is/9serId1YmNZ0Lx1ewh9z2xBwwZeKg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+    integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/24.2.1/i18next.min.js"
+    integrity="sha512-IG0CninltS3ASFOjOdlSGR++diD7at3wksZiICjGklFfI5JVxjxBhmnpb5QAkPrGRimyIWL1FiOF3j5YT6jF4A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.9.3/typeahead.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <script src="/static/js/menu.js"></script>
+
+  <!-- endbuild -->
+
+  <!-- Main JS -->
+  <script src="/static/js/main.js"></script>
+
+  <!-- Page JS -->
+
+</body>
+
+</html>

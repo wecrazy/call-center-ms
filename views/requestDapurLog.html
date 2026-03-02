@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed layout-compact customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/static/"
+  data-template="horizontal-menu-template"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Request Dapur Log - [{{.Pic}}] {{.Merchant}} by {{.AdminCS}}</title>
+
+    <meta name="description" content="" />
+
+    <!-- typeahead -->
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/img/favicon/favicon.ico"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <!-- <link rel="stylesheet" href="/static/fonts/boxicons.css" />
+    <link rel="stylesheet" href="/static/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="/static/fonts/flag-icons.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css"
+      integrity="sha512-bZBu2H0+FGFz/stDN/L0k8J0G8qVsAL0ht1qg5kTwtAheiXwiRKyCq1frwfbSFSJN3jooR5kauE0YjtPzhZtJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Core CSS -->
+    <link
+      rel="stylesheet"
+      href="/static/css/rtl/core.css"
+      class="template-customizer-core-css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/css/rtl/theme-default.css"
+      class="template-customizer-theme-css"
+    />
+    <link rel="stylesheet" href="/static/css/demo.css" />
+
+    <!-- Libs CSS -->
+    <!-- <link
+      rel="stylesheet"
+      href="/static/libs/perfect-scrollbar/perfect-scrollbar.css"
+    />
+    <link rel="stylesheet" href="/static/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="/static/libs/sweetalert2/sweetalert2.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.6/css/perfect-scrollbar.css"
+      integrity="sha512-2xznCEl5y5T5huJ2hCmwhvVtIGVF1j/aNUEJwi/BzpWPKEzsZPGpwnP1JrIMmjPpQaVicWOYVu8QvAIg9hwv9w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.8.1/typeahead.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/libs/bootstrap-maxlength/bootstrap-maxlength.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="/static/js/helpers.js"></script>
+    <script src="/static/js/template-customizer.js"></script>
+    <script src="/static/js/config.js"></script>
+
+    <!-- JQuery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div
+      class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu"
+    >
+      <div class="layout-container">
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="m-3 px-4">
+              <h4 class="py-3 mb-4">
+                <span class="text-muted fw-light">Request Dapur /</span>
+                {{.Merchant}} - {{.Pic}} | <span class="text-muted fw-medium">Called by {{.CSUsername}}</span>
+              </h4>
+
+              <div class="card mb-4">
+                <div class="card-widget-separator-wrapper">
+                  <div class="card-body card-widget-separator">
+                    <div class="row gy-4 gy-sm-1">
+                      <div class="col-sm-12 col-lg-3">
+                        <div
+                          class="d-flex justify-content-between align-items-start card-widget-1 border-end pb-3 pb-sm-0"
+                        >
+                          <div>
+                            <h4 class="mb-1">Merchant Info</h4>
+                            <p class="mb-0">{{.Merchant}}</p>
+                            <p class="mb-0">{{.Pic}} - {{.PicPhone}}</p>
+                            <p class="mb-0">{{.Mid}} {{.Tid}}</p>
+                          </div>
+                          <span
+                            class="badge bg-label-secondary rounded p-2 me-sm-4"
+                          >
+                            <i class="bx bxs-store bx-sm"></i>
+                          </span>
+                        </div>
+                        <hr class="d-none d-sm-block d-lg-none me-4" />
+                      </div>
+                      <div class="col-sm-12 col-lg-3">
+                        <div
+                          class="d-flex justify-content-between align-items-start card-widget-2 border-end pb-3 pb-sm-0"
+                        >
+                          <div>
+                            <h4 class="mb-1">
+                              Jenis Kunjungan: <b>{{.JobOrder}}</b>
+                            </h4>
+                            {{if .OrderDetail}}
+                            <p class="mb-0">{{.OrderDetail}}</p>
+                            {{end}}
+                            <p class="mb-0"></p>
+                          </div>
+                          <span
+                            class="badge bg-label-secondary rounded p-2 me-lg-4"
+                          >
+                            <i class="bx bx-task bx-sm"></i>
+                          </span>
+                        </div>
+                        <hr class="d-none d-sm-block d-lg-none" />
+                      </div>
+                      <div class="col-sm-12 col-lg-3">
+                        <div
+                          class="d-flex justify-content-between align-items-start border-end pb-3 pb-sm-0 card-widget-3"
+                        >
+                          <div>
+                            <h4 class="mb-1">
+                              Kondisi EDC: <b>{{.KondisiEdc}}</b>
+                            </h4>
+                            <p class="mb-0">
+                              Sinyal EDC: {{.SinyalEdc}} {{.BarSinyalEdc}} bar
+                            </p>
+                          </div>
+                          <span
+                            class="badge bg-label-secondary rounded p-2 me-sm-4"
+                          >
+                            <i class="bx bxs-mobile-vibration bx-sm"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-lg-3">
+                        <div
+                          class="d-flex justify-content-between align-items-start"
+                        >
+                          <div>
+                            <h4 class="mb-1">Kelengkapan EDC:</h4>
+                            <p class="mb-0">Adaptor EDC: {{.AdaptorEdc}}, Kondisi Adaptor: {{.KondisiAdaptorEdc}}</p>
+                            {{if .ReqTambahStockThermal}}
+                            <p class="mb-0 text-danger">
+                              Request Tambah: {{.AddStockThermal}} Thermal
+                            </p>
+                            {{end}}
+                          </div>
+                          <span class="badge bg-label-secondary rounded p-2">
+                            <i class="bx bx-list-check bx-sm"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    {{if .AdditionalNotes}}
+                    <div class="row gy-4 gy-sm-1">
+                      <em class="fw-bold">*{{.AdditionalNotes}} </em>
+                    </div>
+                    {{end}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/ Content -->
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!--/ Content wrapper -->
+        </div>
+
+        <!--/ Layout container -->
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+
+    <!--/ Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js static/js/core.js -->
+
+    <!-- Libs JS -->
+    <!-- <script src="/static/libs/jquery/jquery.js"></script> -->
+    <!-- <script src="/static/libs/popper/popper.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/static/libs/hammer/hammer.js"></script>
+    <script src="/static/libs/i18n/i18n.js"></script>
+    <script src="/static/libs/typeahead-js/typeahead.js"></script>
+    <script src="/static/libs/sweetalert2/sweetalert2.js"></script> -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+      integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+      integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.6/perfect-scrollbar.min.js"
+      integrity="sha512-gcLXgodlQJWRXhAyvb5ULNlBAcvjuufaOBRggyLCtCqez+9jW7MxP3Is/9serId1YmNZ0Lx1ewh9z2xBwwZeKg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+      integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/i18next/24.2.1/i18next.min.js"
+      integrity="sha512-IG0CninltS3ASFOjOdlSGR++diD7at3wksZiICjGklFfI5JVxjxBhmnpb5QAkPrGRimyIWL1FiOF3j5YT6jF4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.9.3/typeahead.js"
+    ></script>
+    <script src="/static/libs/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.all.min.js"></script>
+
+    <script src="/static/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Main JS -->
+    <script src="/static/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="/static/js/main/urgent_request.js"></script>
+  </body>
+</html>

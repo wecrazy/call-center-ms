@@ -30,3 +30,22 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+call_center_app.exe
+Aplikasi-Call-Center.exe
+desktop.ini
+bin/ffmpeg.exe
+filestore/
+logs/
+*.xlsx
+public/fonts/
+public/file/
+public/css/
+public/img/
+public/js/
+public/json/
+public/libs/
+*.txt
+*.db
+
+config/conf.yaml

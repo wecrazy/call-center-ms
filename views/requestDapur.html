@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/static/"
+  data-template="vertical-menu-template"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Request Dapur</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/img/favicon/favicon.ico"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css"
+      integrity="sha512-bZBu2H0+FGFz/stDN/L0k8J0G8qVsAL0ht1qg5kTwtAheiXwiRKyCq1frwfbSFSJN3jooR5kauE0YjtPzhZtJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Core CSS -->
+    <link
+      rel="stylesheet"
+      href="/static/css/rtl/core.css"
+      class="template-customizer-core-css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/css/rtl/theme-default.css"
+      class="template-customizer-theme-css"
+    />
+    <link rel="stylesheet" href="/static/css/demo.css" />
+
+    <!-- Libs CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.6/css/perfect-scrollbar.css"
+      integrity="sha512-2xznCEl5y5T5huJ2hCmwhvVtIGVF1j/aNUEJwi/BzpWPKEzsZPGpwnP1JrIMmjPpQaVicWOYVu8QvAIg9hwv9w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.8.1/typeahead.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/libs/bootstrap-maxlength/bootstrap-maxlength.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select@2.4.1/dist/css/tom-select.css"
+      rel="stylesheet"
+    />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="/static/js/helpers.js"></script>
+    <script src="/static/js/template-customizer.js"></script>
+    <script src="/static/js/config.js"></script>
+
+    <!-- JQuery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar layout-without-menu">
+      <div class="layout-container">
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+          <!-- Content -->
+
+          <div class="p-5 flex-grow-1 container-p-y">
+            <div>
+              <form id="urgent-form">
+                <div
+                  class="card shadow-none bg-transparent border border-danger mb-3"
+                >
+                  <div class="card-body">
+                    <h2 class="py-3 mb-4 card-title">
+                      <b class="text-danger">Urgent </b> Request
+                    </h2>
+                    <form id="form-urgent">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row">
+                            <!-- Data Request -->
+                            <input
+                              type="hidden"
+                              class="form-control"
+                              id="dataRequest"
+                              name="dataRequest"
+                              value="urgent-request"
+                            />
+                            <!-- PIC -->
+                            <div
+                              class="form-floating col-sm-6 col-md-4 col-lg-3 mb-4"
+                            >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="picName"
+                                name="picName"
+                                placeholder="Input PIC name . . ."
+                              />
+                              <label for="picName" class="px-4">PIC</label>
+                            </div>
+
+                            <!-- PIC Phone -->
+                            <div
+                              class="form-floating col-sm-6 col-md-4 col-lg-3 mb-4"
+                            >
+                              <input
+                                id="picPhone"
+                                name="picPhone"
+                                type="text"
+                                class="form-control phone-number-mask"
+                                placeholder="0821 1234 5678"
+                              />
+                              <label for="picPhone" class="px-4"
+                                >PIC Phone Number</label
+                              >
+                            </div>
+
+                            <!-- Merchant -->
+                            <div
+                              class="form-floating col-sm-12 col-md-4 col-lg-6 mb-4"
+                            >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="merchantName"
+                                name="merchantName"
+                                placeholder="Input Merchant name . . ."
+                              />
+                              <label for="merchantName" class="px-4"
+                                >Merchant</label
+                              >
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <!-- Merchant Address -->
+                            <div class="col-sm-12 col-md-6 col-lg-6 mb-4">
+                              <label class="form-label" for="merchantAddress"
+                                >Merchant Address</label
+                              >
+                              <textarea
+                                id="merchantAddress"
+                                name="merchantAddress"
+                                class="form-control maxlength-textarea"
+                                rows="4"
+                                maxlength="500"
+                              ></textarea>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                              <!-- MID -->
+                              <div class="form-floating mb-2">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="mid"
+                                  name="mid"
+                                  placeholder="Input MID Merchant . . ."
+                                />
+                                <label for="mid" class="px-4">MID</label>
+                              </div>
+                              <!-- TID -->
+                              <div class="form-floating">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="tid"
+                                  name="tid"
+                                  placeholder="Input TID Merchant . . ."
+                                />
+                                <label for="tid" class="px-4">TID</label>
+                              </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 col-lg-2 mb-4">
+                              <!-- Job Order -->
+                              <div class="">
+                                <label for="jobOrder" class="form-label"
+                                  >Job Order</label
+                                >
+                                <select
+                                  id="jobOrder"
+                                  name="jobOrder"
+                                  class=""
+                                  data-placeholder="Select Job Order"
+                                ></select>
+                              </div>
+
+                              <!-- Admin CS -->
+                              <div class="">
+                                <label for="adminCS" class="form-label"
+                                  >Admin CS</label
+                                >
+                                <select
+                                  id="adminCS"
+                                  name="adminCS"
+                                  class=""
+                                  data-placeholder="Select Admin CS"
+                                ></select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <!-- Order Details -->
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                              <label class="form-label" for="orderDetail"
+                                >Order Details
+                                <small class="text-danger"
+                                  ><i>*Optional</i></small
+                                ></label
+                              >
+                              <textarea
+                                id="orderDetail"
+                                name="orderDetail"
+                                class="form-control maxlength-textarea"
+                                rows="4"
+                                maxlength="500"
+                              ></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="btn btn-xl w-100 btn-primary mt-3">
+                        Submit
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- / Content -->
+
+          <div class="content-backdrop fade"></div>
+        </div>
+        <!-- Content wrapper -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+      integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+      integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.6/perfect-scrollbar.min.js"
+      integrity="sha512-gcLXgodlQJWRXhAyvb5ULNlBAcvjuufaOBRggyLCtCqez+9jW7MxP3Is/9serId1YmNZ0Lx1ewh9z2xBwwZeKg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+      integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/i18next/24.2.1/i18next.min.js"
+      integrity="sha512-IG0CninltS3ASFOjOdlSGR++diD7at3wksZiICjGklFfI5JVxjxBhmnpb5QAkPrGRimyIWL1FiOF3j5YT6jF4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.9.3/typeahead.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.1/dist/js/tom-select.complete.min.js"></script>
+
+    <script src="/static/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Libs JS -->
+    <script src="https://unpkg.com/imask"></script>
+    <script src="/static/libs/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+
+    <!-- Main JS -->
+    <script src="/static/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="/static/js/main/req_dapur.js"></script>
+  </body>
+</html>

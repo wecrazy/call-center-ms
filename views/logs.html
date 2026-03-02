@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Log Viewer</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1827/1827359.png" type="image/png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+</head>
+
+<body class="p-5 bg-light">
+    <div class="container">
+        <h2>📜 Log Viewer</h2>
+
+        <div class="mb-3 mt-3">
+            <label for="logSelector" class="form-label">Select .log file</label>
+            <select class="form-select" id="logSelector">
+                <option disabled selected value="">-- Select --</option>
+            </select>
+        </div>
+
+        <table id="logTable" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Log Entries</th>
+                </tr>
+            </thead>
+        </table>
+
+    </div>
+
+    <script>
+        let table;
+
+        function initTable(filename) {
+            if (table) table.destroy();
+
+            table = $('#logTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: '/log-content',
+                    type: 'POST',
+                    data: function (d) {
+                        d.file = filename;
+                    }
+                },
+                columns: [
+                    { data: 0, title: 'Log Entry' }
+                ],
+                order: [[0, 'desc']] // default ordering newest first
+            });
+        }
+
+        $(document).ready(function () {
+            $.get('/get-logs', function (data) {
+                data.forEach(file => {
+                    $('#logSelector').append(`<option value="${file}">${file}</option>`);
+                });
+            });
+
+            $('#logSelector').on('change', function () {
+                const selected = $(this).val();
+                if (selected) initTable(selected);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed layout-compact customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/static/"
+  data-template="horizontal-menu-template"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Request Dapur - [{{.MerchantPIC}}] {{.MerchantName}}</title>
+
+    <meta name="description" content="" />
+
+    <!-- typeahead -->
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/img/favicon/favicon.ico"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <!-- <link rel="stylesheet" href="/static/fonts/boxicons.css" />
+    <link rel="stylesheet" href="/static/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="/static/fonts/flag-icons.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css"
+      integrity="sha512-bZBu2H0+FGFz/stDN/L0k8J0G8qVsAL0ht1qg5kTwtAheiXwiRKyCq1frwfbSFSJN3jooR5kauE0YjtPzhZtJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Core CSS -->
+    <link
+      rel="stylesheet"
+      href="/static/css/rtl/core.css"
+      class="template-customizer-core-css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/css/rtl/theme-default.css"
+      class="template-customizer-theme-css"
+    />
+    <link rel="stylesheet" href="/static/css/demo.css" />
+
+    <!-- Libs CSS -->
+    <!-- <link
+      rel="stylesheet"
+      href="/static/libs/perfect-scrollbar/perfect-scrollbar.css"
+    />
+    <link rel="stylesheet" href="/static/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="/static/libs/sweetalert2/sweetalert2.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.6/css/perfect-scrollbar.css"
+      integrity="sha512-2xznCEl5y5T5huJ2hCmwhvVtIGVF1j/aNUEJwi/BzpWPKEzsZPGpwnP1JrIMmjPpQaVicWOYVu8QvAIg9hwv9w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.8.1/typeahead.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/libs/bootstrap-maxlength/bootstrap-maxlength.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="/static/js/helpers.js"></script>
+    <script src="/static/js/template-customizer.js"></script>
+    <script src="/static/js/config.js"></script>
+
+    <!-- JQuery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div
+      class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu"
+    >
+      <div class="layout-container">
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="m-3">
+              <div class="m-0 p-0 card bg-label-danger text-danger mb-2">
+                <div class="card-widget-separator-wrapper">
+                  <div class="card-body card-widget-separator">
+                    <div class="row gy-4 gy-sm-1">
+                      <!-- Admin CS Section -->
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div
+                          class="d-flex justify-content-between align-items-start card-widget-1 border-end pb-3 pb-sm-0"
+                        >
+                          <div>
+                            <h3 class="mb-1">CS</h3>
+                            <p class="mb-0">{{ .AdminCSName }}</p>
+                          </div>
+                          <span
+                            class="badge bg-label-secondary rounded p-2 me-sm-4"
+                          >
+                            <i class="bx bx-user bx-sm"></i>
+                          </span>
+                        </div>
+                        <hr class="d-none d-sm-block d-lg-none me-4" />
+                      </div>
+
+                      <!-- Merchant PIC Section -->
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div
+                          class="d-flex justify-content-between align-items-start card-widget-2 border-end pb-3 pb-sm-0"
+                        >
+                          <div>
+                            <h3 class="mb-1">{{ .MerchantPIC }}</h3>
+                            <p class="mb-0">{{ .MerchantPICPhone }}</p>
+                          </div>
+                          <span
+                            class="badge bg-label-secondary rounded p-2 me-lg-4"
+                          >
+                            <i class="bx bxs-user-voice bx-sm"></i>
+                          </span>
+                        </div>
+                        <hr class="d-none d-sm-block d-lg-none" />
+                      </div>
+
+                      <!-- Merchant EDC Section  -->
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div
+                          class="d-flex justify-content-between align-items-start card-widget-2 border-end pb-3 pb-sm-0"
+                        >
+                          <div>
+                            <h3 class="mb-1">{{ .MID }}</h3>
+                            <p class="mb-0">{{ .TID }}</p>
+                          </div>
+                          <span
+                            class="badge bg-label-secondary rounded p-2 me-lg-4"
+                          >
+                            <i class="bx bx-mobile-vibration bx-sm"></i>
+                          </span>
+                        </div>
+                        <hr class="d-none d-sm-block d-lg-none" />
+                      </div>
+
+                      <!-- Merchant Name Section -->
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div
+                          class="d-flex justify-content-between align-items-start"
+                        >
+                          <div>
+                            <h3 class="mb-1">{{ .MerchantName }}</h3>
+                            <p class="mb-0">{{ .MerchantAddress }}</p>
+                          </div>
+                          <span
+                            class="badge bg-label-secondary rounded p-2 me-sm-4"
+                          >
+                            <i class="bx bxs-store bx-sm"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion mb-2" id="collapsibleSection">
+                <div class="card accordion-item">
+                  <h2 class="accordion-header" id="orderDetails">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseorderDetails"
+                      aria-expanded="true"
+                      aria-controls="collapseorderDetails"
+                    >
+                      Order Details &nbsp; &nbsp; &nbsp;
+                      <i>({{.TaskType}}) </i>
+                      &nbsp; &nbsp;
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseorderDetails"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="orderDetails"
+                    data-bs-parent="#collapsibleSection"
+                  >
+                    <div class="accordion-body">
+                      <div class="card-text text-muted">{{ .Description }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <!-- Text Presentation -->
+                <div class="col-md-12 col-sm-12 px-4">
+                  <div class="card overflow-hidden mb-4" style="height: 300px">
+                    <h5 class="p-2 bg-label-secondary card-header">
+                      Text Presentation
+                    </h5>
+                    <div class="card-body scroll-vertical">
+                      <div>{{ .TextPresentation }}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Form Input -->
+                <form id="form-urgent-visit" class="col-md-12 col-sm-12 px-4">
+                  <div class="card overflow-hidden" style="height: 300px">
+                    <h5 class="p-2 card-header bg-danger text-light text-white">
+                      Form Confirmation to Merchant About Today's Visit
+                    </h5>
+                    <div class="card-body d-flex flex-column scroll-vertical">
+                      <div class="row">
+                        <!-- Data Request -->
+                        <input type="hidden" id="dataRequest" name="dataRequest" value="urgent-data-log" />
+                        <!-- ID -->
+                        <input type="hidden" id="dataUrgentID" name="id" value="{{.ID}}" />
+                        <!-- ID AdminCS -->
+                        <input type="hidden" id="idCS" name="idCS" value="{{.IDCS}}" />
+                        <!-- Kondisi EDC -->
+                        <div class="mt-3 col-sm-4 col-md-4 col-lg-4">
+                          <small class="text-light fw-medium d-block"
+                            >Kondisi EDC</small
+                          >
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="kondisi_edc"
+                              id="edcBaik"
+                              value="Baik"
+                            />
+                            <label class="form-check-label" for="edcBaik"
+                              >Baik</label
+                            >
+                          </div>
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="kondisi_edc"
+                              id="edcRusak"
+                              value="Rusak"
+                            />
+                            <label class="form-check-label" for="edcRusak"
+                              >Rusak</label
+                            >
+                          </div>
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="kondisi_edc"
+                              id="edcHilangTidak"
+                              value="Hilang / Tidak Ada"
+                            />
+                            <label class="form-check-label" for="edcHilangTidak"
+                              >Hilang / Tidak Ada</label
+                            >
+                          </div>
+                        </div>
+                        <!-- Adaptor EDC -->
+                        <div class="mt-3 col-sm-4 col-md-4 col-lg-4">
+                          <small class="text-light fw-medium d-block"
+                            >Adaptor EDC</small
+                          >
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="adaptor_edc"
+                              id="adaptorAda"
+                              value="Ada"
+                            />
+                            <label class="form-check-label" for="adaptorAda"
+                              >Ada</label
+                            >
+                          </div>
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="adaptor_edc"
+                              id="adaptorTidak"
+                              value="Tidak Ada"
+                            />
+                            <label class="form-check-label" for="adaptorTidak"
+                              >Tidak Ada</label
+                            >
+                          </div>
+                        </div>
+                        <!-- Kondisi Adaptor EDC -->
+                        <div class="mt-3 col-sm-4 col-md-4 col-lg-4">
+                          <small class="text-light fw-medium d-block"
+                            >Kondisi Adaptor EDC</small
+                          >
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="kondisi_adaptor_edc"
+                              id="adaptorBaik"
+                              value="Baik"
+                            />
+                            <label class="form-check-label" for="adaptorBaik"
+                              >Baik</label
+                            >
+                          </div>
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="kondisi_adaptor_edc"
+                              id="adaptorRusak"
+                              value="Rusak"
+                            />
+                            <label class="form-check-label" for="adaptorRusak"
+                              >Rusak</label
+                            >
+                          </div>
+                        </div>
+                        <!-- Tipe Sinyal EDC -->
+                        <div class="mt-3 col-sm-4 col-md-4 col-lg-4">
+                          <small class="text-light fw-medium d-block"
+                            >Tipe Sinyal EDC</small
+                          >
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="sinyal_edc"
+                              id="sinyal2g"
+                              value="2G"
+                            />
+                            <label class="form-check-label" for="sinyal2g"
+                              >2G</label
+                            >
+                          </div>
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="sinyal_edc"
+                              id="sinyal3g"
+                              value="3G"
+                            />
+                            <label class="form-check-label" for="sinyal3g"
+                              >3G</label
+                            >
+                          </div>
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="sinyal_edc"
+                              id="sinyal4g"
+                              value="4G"
+                            />
+                            <label class="form-check-label" for="sinyal4g"
+                              >4G</label
+                            >
+                          </div>
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="sinyal_edc"
+                              id="sinyal5g"
+                              value="5G"
+                            />
+                            <label class="form-check-label" for="sinyal5g"
+                              >5G</label
+                            >
+                          </div>
+
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="sinyal_edc"
+                              id="sinyaltidak"
+                              value="No Signal"
+                            />
+                            <label class="form-check-label" for="sinyaltidak"
+                              >No Signal</label
+                            >
+                          </div>
+                        </div>
+                        <!-- Bar Sinyal EDC -->
+                        <div class="mt-3 col-sm-4 col-md-4 col-lg-4">
+                          <small class="text-light fw-medium d-block"
+                            >Bar Sinyal EDC</small
+                          >
+                          <div class="input-group input-group-merge">
+                            <input
+                              type="number"
+                              class="form-control form-control-lg"
+                              id="barsinyalEdc"
+                              name="bar_sinyal_edc"
+                              min="0"
+                              max="10"
+                              value="0"
+                              placeholder="Sinyal bar EDC saat ini . . ."
+                            />
+                            <span class="input-group-text">Bar</span>
+                          </div>
+                        </div>
+                        <!-- Stock Thermal -->
+                        <div class="mt-3 col-sm-4 col-md-4 col-lg-4">
+                          <div class="row">
+                            <div class="col-5">
+                              <small class="text-light fw-medium d-block"
+                                >Stock Thermal</small
+                              >
+                            </div>
+                            <div class="col-7">
+                              <div class="form-check form-switch mb-2">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  id="tambahstockThermal"
+                                  name="is_tambah_stock"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="tambahstockThermal"
+                                  >Tambah Stock?</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="input-group input-group-merge">
+                            <span
+                              class="input-group-text bg-label-secondary"
+                              id="labeltambahThermal"
+                            >
+                              <i class="bx bx-plus-medical"></i>
+                            </span>
+                            <input
+                              readonly
+                              type="number"
+                              class="form-control bg-label-secondary text-black"
+                              name="add_stock_thermal"
+                              id="addstockThermal"
+                              value="0"
+                              min="0"
+                              max="1000"
+                              placeholder="Jumlah tambahan stock thermal . . ."
+                            />
+                            <span class="input-group-text">Thermal</span>
+                          </div>
+                        </div>
+                        <!-- Additional Notes -->
+                        <div class="mt-3 col-sm-12 col-md-12 col-lg-12">
+                          <small class="text-light fw-medium d-block"
+                            >Additional Notes (<i>*Optional</i>)</small
+                          >
+                          <textarea
+                            id="additionalNotes"
+                            name="additional_notes"
+                            class="form-control maxlength-textarea"
+                            rows="4"
+                            maxlength="1000"
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div class="mb-4">
+                        <!-- Additional content here -->
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-lg btn-primary w-100 mt-1">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+            <!--/ Content -->
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!--/ Content wrapper -->
+        </div>
+
+        <!--/ Layout container -->
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+
+    <!--/ Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js static/js/core.js -->
+
+    <!-- Libs JS -->
+    <!-- <script src="/static/libs/jquery/jquery.js"></script> -->
+    <!-- <script src="/static/libs/popper/popper.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/static/libs/hammer/hammer.js"></script>
+    <script src="/static/libs/i18n/i18n.js"></script>
+    <script src="/static/libs/typeahead-js/typeahead.js"></script>
+    <script src="/static/libs/sweetalert2/sweetalert2.js"></script> -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+      integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+      integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.6/perfect-scrollbar.min.js"
+      integrity="sha512-gcLXgodlQJWRXhAyvb5ULNlBAcvjuufaOBRggyLCtCqez+9jW7MxP3Is/9serId1YmNZ0Lx1ewh9z2xBwwZeKg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+      integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/i18next/24.2.1/i18next.min.js"
+      integrity="sha512-IG0CninltS3ASFOjOdlSGR++diD7at3wksZiICjGklFfI5JVxjxBhmnpb5QAkPrGRimyIWL1FiOF3j5YT6jF4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.9.3/typeahead.js"
+    ></script>
+    <script src="/static/libs/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.all.min.js"></script>
+
+    <script src="/static/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Main JS -->
+    <script src="/static/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="/static/js/main/urgent_request.js"></script>
+  </body>
+</html>
